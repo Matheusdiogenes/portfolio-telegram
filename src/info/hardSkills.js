@@ -2,16 +2,20 @@ const hardSkills = `
 Linguagem: 
   - Javascript 
   - Typescript
+  - Python
+  - Golang (Aprendendo...)
+
+Observação: Meu foco é no Typescript/Javascript
 
 Backend: 
   - Node
   - Express.js
   - Jest
+  - Teste unitários
+  - Teste de integração
   - JWT (Json Web Token)
   - Bcrypt
   - Argon
-  - Teste unitários
-  - Teste de integração
   - NestJs
   - Swagger
 
@@ -19,28 +23,29 @@ Frontend:
   - HTML
   - CSS
   - ReactJS
+  - Axios
 
 Banco de dados: 
 Em geral: Bancos Relacionais e não relacionais
-Expecifico: 
+Específico: 
   - Linguagem SQL
   - Postgresql
   - MySql
   - Mongodb
   - Prisma
-  - Typeorm
+  - TypeORM
 
-Outras Tecnologias: 
+Outras Habilidades: 
   - Docker
   - Postman
+  - Linux básico
 
-Conhecimentos mais tecnicos: 
+Conhecimentos mais técnicos:
   - POO (Programação orientada a objetos)
   - TDD (Test Driven Development)
-  - Clean Archtecture
+  - Clean Architecture
   - SOLID
-  - Clean Code
-  - Ports and Adpters
-  - Desaclopamento
+  - Clean Code  
+  - Desacoplamento
 `
 module.exports = { hardSkills }

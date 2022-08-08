@@ -1,16 +1,15 @@
 const dotenv = require('dotenv')
-dotenv.config({ path: __dirname + '/.env' })
+dotenv.config()
 const { Telegraf } = require('telegraf')
 const TOKEN = process.env.BOT_TOKEN
 
 const { about } = require('./info/about')
 const { social } = require('./info/social')
 const { hardSkills } = require('./info/hardSkills')
-
 const bot = new Telegraf(TOKEN)
 
-const welcome = `Bem vindo ao meu portifolio aqui no Telegram.
-Para me me conhecer melhor basta clicar em um dos topicos ou digitar alguma dessas palavras chaves a seguir.
+const welcome = `Bem vindo ao meu portfólio aqui no Telegram.
+Para me conhecer melhor basta clicar em um dos tópicos ou digitar alguma dessas palavras chaves a seguir.
 \nPalavras chaves: Sobre, Contato, Hard Skills, Github`
 
 bot.command('start', (ctx) => {
@@ -24,12 +23,21 @@ bot.command('start', (ctx) => {
         [
           { text: 'Hard Skills' },
           { text: 'Github' }
+        ],
+        [
+          { text: 'Atualizar Informações'}
         ]
       ],
       resize_keyboard: true,
       // one_time_keyboard: true
     }
   })
+
+  
+})
+
+bot.hears('Atualizar Informações', ctx => {
+  ctx.reply(`Para atualizar é preciso reiniciar o bot. \nPara isso, basta clicar aqui: /start \n`)
 })
 
 bot.hears('Hard Skills', ctx => {

@@ -9,9 +9,9 @@ Fiquei fascinado com o poder que a tecnologia proporciona para inovação e reso
 
 Desde comecei a programar na tecnologia, passei pelo frontend e o backend. Porém, decidi focar no backend.
 
-A escolha do backend foi pelo fato de ser curioso e gosta de saber o que acontece por trás dos panos.
+A escolha do backend foi pelo fato de ser curioso e gostar de saber o que acontece por trás dos panos.
 
-No fim da graduação participei de um desenvolvimento de software de gerenciamento para propria faculdade, o qual o software foi usado como Trabalho de Conclusão de Curso.
+No fim da graduação participei de um desenvolvimento de software de gerenciamento para a própria faculdade, o qual o software foi usado como Trabalho de Conclusão de Curso.
 
 Meu papel no software foi validar os casos de uso na parte do backend. 
 
