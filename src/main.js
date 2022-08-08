@@ -11,7 +11,7 @@ let bot
 if (process.env.environment == "PRODUCTION") {
   bot = new Telegraf(TOKEN)
   bot.startWebhook(`/${TOKEN}`, null, 3000)
-} else { // Else local
+} else { 
   bot = new Telegraf(TOKEN)
 }
 
@@ -36,11 +36,8 @@ bot.command('start', (ctx) => {
         ]
       ],
       resize_keyboard: true,
-      // one_time_keyboard: true
     }
   })
-
-
 })
 
 bot.hears('Atualizar Informações', ctx => {
@@ -73,7 +70,7 @@ if(process.env.environment == "PRODUCTION"){
   }).then(() => {
     console.info(`The bot ${bot.botInfo.username} is running on server`);
   });
-} else { // if local use Long-polling
+} else {
   bot.launch().then(() => {
     console.info(`The bot ${bot.botInfo.username} is running locally`);
   });
