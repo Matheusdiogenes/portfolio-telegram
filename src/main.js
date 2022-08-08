@@ -9,7 +9,7 @@ const { hardSkills } = require('./info/hardSkills')
 
 let bot
 if (process.env.environment == "PRODUCTION") {
-  bot = new Telegraf(process.env.TOKEN)
+  bot = new Telegraf(TOKEN)
   bot.startWebhook(`/${TOKEN}`, null, 3000)
 } else { // Else local
   bot = new Telegraf(TOKEN)
