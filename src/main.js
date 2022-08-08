@@ -6,7 +6,14 @@ const TOKEN = process.env.BOT_TOKEN
 const { about } = require('./info/about')
 const { social } = require('./info/social')
 const { hardSkills } = require('./info/hardSkills')
-const bot = new Telegraf(TOKEN)
+
+let bot
+if (process.env.environment == "PRODUCTION") {
+  bot = new Telegraf(process.env.TOKEN)
+  bot.startWebhook(`/${TOKEN}`, null, 3000)
+} else { // Else local
+  bot = new Telegraf(TOKEN)
+}
 
 const welcome = `Bem vindo ao meu portfólio aqui no Telegram.
 Para me conhecer melhor basta clicar em um dos tópicos ou digitar alguma dessas palavras chaves a seguir.
@@ -18,14 +25,14 @@ bot.command('start', (ctx) => {
       keyboard: [
         [
           { text: 'Sobre' },
-          { text: 'Contato' },          
+          { text: 'Contato' },
         ],
         [
           { text: 'Hard Skills' },
           { text: 'Github' }
         ],
         [
-          { text: 'Atualizar Informações'}
+          { text: 'Atualizar Informações' }
         ]
       ],
       resize_keyboard: true,
@@ -33,7 +40,7 @@ bot.command('start', (ctx) => {
     }
   })
 
-  
+
 })
 
 bot.hears('Atualizar Informações', ctx => {
@@ -57,9 +64,17 @@ bot.hears('Github', ctx => {
   ctx.reply(`${github}`)
 })
 
-bot.launch({
-  webhook: {
-    domain: process.env.DOMAIN,
-    port: 3000 || process.env.PORT
-  }
-})
+if(process.env.environment == "PRODUCTION"){
+  bot.launch({
+    webhook:{
+        domain: process.env.DOMAIN,
+        port: process.env.PORT || 8000
+    }
+  }).then(() => {
+    console.info(`The bot ${bot.botInfo.username} is running on server`);
+  });
+} else { // if local use Long-polling
+  bot.launch().then(() => {
+    console.info(`The bot ${bot.botInfo.username} is running locally`);
+  });
+}
