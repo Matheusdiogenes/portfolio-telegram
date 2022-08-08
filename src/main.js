@@ -59,6 +59,7 @@ bot.hears('Github', ctx => {
 
 bot.launch({
   webhook: {
+    domain: process.env.DOMAIN,
     port: 3000 || process.env.PORT
   }
 })
